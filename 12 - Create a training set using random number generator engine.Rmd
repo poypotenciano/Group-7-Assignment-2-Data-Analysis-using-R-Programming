@@ -1,0 +1,18 @@
+---
+title: "12 - Create a training set using random number generator engine."
+author: "Poy Potenciano"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+RandomNum <- runif(50, 1, 99)
+```
+
+```{r}
+RandomNum
+```

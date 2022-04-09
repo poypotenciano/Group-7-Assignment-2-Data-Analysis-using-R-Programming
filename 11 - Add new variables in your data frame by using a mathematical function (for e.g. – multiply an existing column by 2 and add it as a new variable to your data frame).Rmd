@@ -1,0 +1,14 @@
+---
+title: '11'
+output: pdf_document
+date: '2022-04-08'
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+Add new variables in your data frame by using a mathematical function (for e.g. – multiply an existing column by 2 and add it as a new variable to your data frame)
+```{r}
+dplyr::mutate(vgsales, Rank = 2*Rank)
+```

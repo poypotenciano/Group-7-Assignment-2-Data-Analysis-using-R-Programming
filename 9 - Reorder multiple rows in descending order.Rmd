@@ -1,0 +1,20 @@
+---
+title: "9 - Reorder multiple rows in descending order"
+author: "Ethan Zatzman"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r load-packages, include=FALSE}
+library(dplyr)
+library(magrittr)
+library(knitr)
+```
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+vgsales = vgsales %>% arrange(desc(User_Score))
+```

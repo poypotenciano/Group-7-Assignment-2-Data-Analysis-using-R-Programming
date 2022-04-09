@@ -1,0 +1,15 @@
+---
+title: 5 - Use data manipulation techniques and filter rows based on any logical criteria
+  that exist in your dataset.
+author: "Sriram Govindapuram Ramani"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+filter(vgsales,vgsales$Publisher=="Nintendo")
+```

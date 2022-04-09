@@ -1,0 +1,14 @@
+---
+title: "15 - Plot a scatter plot for any 2 variables in your dataset"
+author: "Muhammed Aqib Arif Ahamed"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+plot(vgsales$Critic_Score, vgsales$Total_Shipped, xlab = 'Critic Score', ylab = 'Total Games Shipped')
+```

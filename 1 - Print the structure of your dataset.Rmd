@@ -1,0 +1,14 @@
+---
+title: '1 - Print the structure of your dataset'
+author: "Yi Ban"
+output: pdf_document
+date: '2022-04-08'
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+print(str(vgsales))
+```

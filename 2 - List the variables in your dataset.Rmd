@@ -1,0 +1,15 @@
+---
+title: "2 - List the variables in your dataset"
+author: "Yi Ban"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+names(vgsales)
+```
+

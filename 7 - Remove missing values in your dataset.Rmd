@@ -1,0 +1,14 @@
+---
+title: "7 - Remove missing values in your dataset"
+author: "Geetanjali Arora"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+vgsales_na_omit <- na.omit(vgsales)
+```

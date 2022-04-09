@@ -1,0 +1,37 @@
+---
+title: 14 - Use any of the numerical variables from the dataset and perform the following
+  statistical functions • Mean • Median • Mode • Range
+author: "Ethan Zatzman"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+Mean
+```{r}
+mean_of_user_score <- mean(na.omit(vgsales$User_Score))
+mean_of_user_score #
+```
+
+Median
+```{r}
+mean_of_user_score <- mean(na.omit(vgsales$User_Score))
+mean_of_user_score #
+```
+
+Mode
+```{r}
+freq_of_user_score <- data.frame(table(vgsales$User_Score))
+mode_of_user_score <- max(freq_of_user_score$Freq)
+freq_of_user_score #
+mode_of_user_score #
+```
+
+Range
+```{r}
+range_of_user_score <- range(na.omit(vgsales$User_Score))
+range_of_user_score #
+```

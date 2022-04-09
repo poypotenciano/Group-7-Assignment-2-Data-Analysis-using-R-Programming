@@ -1,0 +1,18 @@
+---
+title: "8 - Identify and remove duplicated data in your dataset"
+author: "Geetanjali Arora"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+duplicated(vgsales)
+which(duplicated(vgsales))
+vgsales_no_duplicates <- vgsales[!duplicated(vgsales),]
+```
+
+

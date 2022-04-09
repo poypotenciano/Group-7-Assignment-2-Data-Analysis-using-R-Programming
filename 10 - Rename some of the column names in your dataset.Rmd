@@ -1,0 +1,27 @@
+---
+title: "10 - Rename some of the column names in your dataset"
+author: "Ethan Zatzman"
+date: '2022-04-08'
+output: pdf_document
+---
+```{r load-packages, include=FALSE}
+library(dplyr)
+library(magrittr)
+library(knitr)
+```
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+names(vgsales)[names(vgsales)=="ESRB_Rating"]<- "Rating"
+```
+
+```{r}
+names(vgsales)[names(vgsales)=="Platform"]<- "Console"
+```
+
+```{r}
+vgsales %>% select(Rating,Console)
+```

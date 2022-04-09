@@ -1,0 +1,26 @@
+---
+title: 17 - Find the correlation between any 2 variables by applying least square
+  linear regression model
+author: "Poy Potenciano"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+X <- vgsales[,"Critic_Score"]
+Y <- vgsales[,"User_Score"]
+```
+
+```{r}
+head(X)
+head(Y)
+```
+
+```{r}
+xycorr <- cor(Y,X, method = "pearson")
+xycorr #
+```

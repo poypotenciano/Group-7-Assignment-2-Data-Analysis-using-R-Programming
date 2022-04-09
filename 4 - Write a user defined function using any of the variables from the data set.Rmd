@@ -1,0 +1,18 @@
+---
+title: "4 - Write a user defined function using any of the variables from the data set."
+author: "Sriram Govindapuram Ramani"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+userdefinedfunction = function(x,y){x/2+4 + y/5+2}
+```
+
+```{r}
+userdefinedfunction(vgsales$NA_Sales,vgsales$PAL_Sales)
+```
