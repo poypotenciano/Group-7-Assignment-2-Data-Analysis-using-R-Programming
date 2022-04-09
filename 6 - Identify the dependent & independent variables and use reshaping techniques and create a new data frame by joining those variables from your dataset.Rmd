@@ -1,0 +1,20 @@
+---
+title: 6 - Identify the dependent & independent variables and use reshaping techniques
+  and create a new data frame by joining those variables from your dataset.
+author: "Geetanjali Arora"
+date: '2022-04-08'
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+```{r}
+newvgsales = cbind(vgsales$User_Score, vgsales$Critic_Score, vgsales$Total_Shipped)
+View(newvgsales)
+newvgsales = as.data.frame(newvgsales)
+names(newvgsales)[1]="User_Score"
+names(newvgsales)[2]="Critic_Score"
+names(newvgsales)[3]="Total_Shipped"
+```
