@@ -1,0 +1,208 @@
+---
+title: "Group 7 - R Assignment [Resubmission]"
+output: pdf_document
+---
+
+```{r}
+vgsales <- read.csv("vgsales.csv")
+```
+
+**Task 1 - Print the structure of your dataset**
+
+**author: Yi Ban**
+
+```{r}
+print(str(vgsales))
+```
+
+**Task 2 - List the variables in your dataset**
+
+**author: Yi Ban**
+
+```{r}
+names(vgsales)
+```
+
+**Task 3 - Print the top 15 rows of your dataset**
+
+**author: Yi Ban**
+
+```{r}
+print(head(vgsales,n=15))
+```
+
+**Task 4 - Write a user defined function using any of the variables from the data set.**
+
+**author: Sriram Govindapuram Ramani**
+
+```{r}
+userdefinedfunction = function(x,y){x/2+4 + y/5+2}
+userdefinedfunction(vgsales$NA_Sales,vgsales$PAL_Sales)
+```
+
+**Task 5 - Use data manipulation techniques and filter rows based on any logical criteria that exist in your dataset.**
+
+**author: Sriram Govindapuram Ramani**
+
+```{r}
+filter(vgsales,vgsales$Publisher=="Nintendo")
+```
+
+**Task 6 - Identify the dependent & independent variables and use reshaping techniques and create a new data frame by joining those variables from your dataset.**
+
+**author: Geetanjali Arora**
+
+```{r}
+newvgsales = cbind(vgsales$User_Score, vgsales$Critic_Score, vgsales$Total_Shipped)
+View(newvgsales)
+newvgsales = as.data.frame(newvgsales)
+names(newvgsales)[1]="User_Score"
+names(newvgsales)[2]="Critic_Score"
+names(newvgsales)[3]="Total_Shipped"
+```
+
+**Task 7 - Remove missing values in your dataset**
+
+**author: Geetanjali Arora**
+
+```{r}
+vgsales_na_omit <- na.omit(vgsales)
+```
+
+**Task 8 - Identify and remove duplicated data in your dataset**
+
+**author: Geetanjali Arora**
+
+```{r}
+duplicated(vgsales)
+which(duplicated(vgsales))
+vgsales_no_duplicates <- vgsales[!duplicated(vgsales),]
+```
+
+**Task 9 - Reorder multiple rows in descending order**
+
+**author: Ethan Zatzman**
+
+```{r load-packages, include=FALSE}
+library(dplyr)
+library(magrittr)
+library(knitr)
+library(ggplot2)
+```
+
+```{r}
+vgsales = vgsales %>% arrange(desc(User_Score))
+vgsales %>% select(User_Score)
+```
+
+**Task 10 - Rename some of the column names in your dataset**
+
+**author: Ethan Zatzman**
+
+```{r}
+names(vgsales)[names(vgsales)=="ESRB_Rating"]<- "Rating"
+```
+
+```{r}
+names(vgsales)[names(vgsales)=="Platform"]<- "Console"
+```
+
+```{r}
+vgsales %>% select(Rating,Console)
+```
+
+**Task 11 - Add new variables in your data frame by using a mathematical function (for e.g. -- multiply an existing column by 2 and add it as a new variable to your data frame)**
+
+**author: Poy Potenciano**
+
+```{r}
+dplyr::mutate(vgsales, Rank = 2*Rank)
+```
+
+**Task 12 - Create a training set using random number generator engine.**
+
+**author: Poy Potenciano**
+
+```{r}
+RandomNum <- runif(50, 1, 99)
+RandomNum
+```
+
+**Task 13 - Print the summary statistics of your dataset**
+
+**author: Sriram Govindapuram Ramani**
+
+```{r}
+summary(vgsales)
+```
+
+**Task 14 - Use any of the numerical variables from the dataset and perform the following statistical functions • Mean • Median • Mode • Range**
+
+**author: Ethan Zatzman**
+
+*Mean*
+
+```{r}
+mean_of_user_score <- mean(na.omit(vgsales$User_Score))
+mean_of_user_score #
+```
+
+*Median*
+
+```{r}
+mean_of_user_score <- mean(na.omit(vgsales$User_Score))
+mean_of_user_score #
+```
+
+*Mode*
+
+```{r}
+freq_of_user_score <- data.frame(table(vgsales$User_Score))
+mode_of_user_score <- max(freq_of_user_score$Freq)
+freq_of_user_score #
+mode_of_user_score #
+```
+
+*Range*
+
+```{r}
+range_of_user_score <- range(na.omit(vgsales$User_Score))
+range_of_user_score #
+```
+
+**Task 15 - Plot a scatter plot for any 2 variables in your dataset**
+
+**author: Muhammed Aqib Arif Ahamed**
+
+```{r}
+plot(vgsales$Critic_Score, vgsales$Total_Shipped, xlab = 'Critic Score', ylab = 'Total Games Shipped')
+```
+
+**Task 16 - Plot a bar plot for any 2 variables in your dataset**
+
+**author: Muhammed Aqib Arif Ahamed**
+
+```{r}
+ggplot(data = vgsales) + geom_bar(aes(x = Critic_Score, fill=as.factor(Total_Shipped)))
+```
+
+**Task 17 Find the correlation between any 2 variables by applying least square linear regression model author: Poy Potenciano**
+
+```{r}
+X <- vgsales[,"Critic_Score"]
+Y <- vgsales[,"User_Score"]
+```
+
+```{r}
+head(X)
+head(Y)
+
+xycorr <- cor(Y,X, method = "pearson")
+xycorr #
+```
+
+# **GITHUB FILE**
+
+## Click the link below:
+
+## [**Group 7 - R Assignment Github Repository**](https://github.com/poypotenciano/Group-7-Assignment-2-Data-Analysis-using-R-Programming.git)
